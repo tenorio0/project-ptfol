@@ -1,0 +1,11 @@
+{
+    "java.home": "/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home",
+    "java.configuration.runtimes": [
+      {
+        "name": "JavaSE-1.8",
+        "path": "/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home",
+        "default": true
+      }
+    ]
+  }
+  
