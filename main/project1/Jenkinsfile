@@ -1,0 +1,42 @@
+pipeline {
+    agent {
+        docker {
+            image 'maven:3.8.6-openjdk-18'
+            args '-v /root/.m2:/root/.m2'
+        }
+    }
+
+    environment {
+        ALLURE_RESULTS = 'allure-results'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/seu-repositorio/projeto-automatizacao.git'
+            }
+        }
+
+        stage('Build and Test') {
+            steps {
+                sh 'mvn clean test'
+            }
+        }
+
+        stage('Generate Allure Report') {
+            steps {
+                allure([
+                    includeProperties: false,
+                    jdk: '',
+                    results: [[path: ALLURE_RESULTS]]
+                ])
+            }
+        }
+    }
+
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}
