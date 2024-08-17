@@ -1,0 +1,4 @@
+com/example/core/BasePage.class
+com/example/core/BaseTest.class
+com/example/utils/DriverFactory.class
+com/example/Main.class
