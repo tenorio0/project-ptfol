@@ -54,10 +54,6 @@ public class BasePage {
         }
     }
 
-    private static boolean isTextPresentInElement(WebElement element, String text) {
-        return element.getText().contains(text);
-    }
-
     private static void smallScrollInElement(WebElement element) {
         Actions actions = new Actions(getDriver());
         actions.moveToElement(element).clickAndHold().moveByOffset(0, 20).release().perform();

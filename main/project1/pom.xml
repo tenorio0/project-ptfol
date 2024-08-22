@@ -11,11 +11,11 @@
 
     <!-- Configurações do Projeto -->
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+             <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <allure.version>2.13.8</allure.version>
-        <cucumber.version>6.10.4</cucumber.version>
+        <cucumber.version>6.10.4</cucumber.version> <!-- Adicionado a versão do Cucumber -->
     </properties>
 
     <!-- Dependências do Projeto -->
@@ -90,6 +90,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
                 <configuration>
+                    <includes>
+                        <include>**/CucumberRunnerTest.java</include>
+                    </includes>
                     <systemPropertyVariables>
                         <allure.results.directory>allure-results</allure.results.directory>
                     </systemPropertyVariables>

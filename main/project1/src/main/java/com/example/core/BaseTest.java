@@ -2,7 +2,6 @@ package com.example.core;
 
 import io.qameta.allure.Attachment;
 import org.junit.After;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 

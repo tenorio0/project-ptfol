@@ -1,11 +1,11 @@
-FROM maven:3.8.6-openjdk-1.8 AS build
-WORKDIR /app
-COPY pom.xml .
-RUN mvn dependency:go-offline
-COPY src ./src
-RUN mvn package
+# Use a imagem base do OpenJDK 17
+FROM openjdk:17-jdk-slim
 
-FROM openjdk:18-jre-slim
+# Configura o diretório de trabalho
 WORKDIR /app
-COPY --from=build /app/target/meu-projeto.jar app.jar
-ENTRYPOINT ["java", "-jar", "app.jar"]
+
+# Copia o arquivo JAR para o container
+COPY target/minhaaplicacao-1.0-SNAPSHOT.jar /app/minhaaplicacao.jar
+
+# Comando para executar o aplicativo
+ENTRYPOINT ["java", "-jar", "/app/minhaaplicacao.jar"]
